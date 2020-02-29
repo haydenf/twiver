@@ -1,0 +1,8 @@
+.title {
+  text-align: center;
+}
+
+button, .loader{
+  align-items: center;
+  text-align: center;
+}
