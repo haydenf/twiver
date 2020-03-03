@@ -20,11 +20,11 @@ form.addEventListener("submit", event => {
     content
   };
   console.log(twiv);
-
-
+  
   form.style.display   = "none"
   loader.style.display = ""
   
+  // fetching data from our server, passing it through JSON.stringify
   fetch(API, {
     method: 'POST',
     body: JSON.stringify(twiv),
@@ -35,11 +35,11 @@ form.addEventListener("submit", event => {
     .then(res => res.json())
     .then(() => {
       form.reset();
-
+        // setting a timeout to hide the form for 15seconds (rate limit is set to 15sec)
         setTimeout(() => {
           form.style.display = '';
         }, 15000 );
-
+      
       listAllTwivs();
       loader.style.display = 'none';
   })

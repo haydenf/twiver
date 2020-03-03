@@ -43,6 +43,7 @@ app.use(rateLimit({
   }))
 
 app.post('/twivs', (req, res) => {
+    // running validation check on twiv, if valid continue proceass
     if (validTwiv(req.body)) {
         const twiv = {
             name: req.body.name.toString(),
@@ -56,6 +57,7 @@ app.post('/twivs', (req, res) => {
                 res.json(createdTwiv)
             });
     } else {
+        // reponse if twiv doesn't pass validation
         res.status(442);
         res.json({
             message: 'Please fill in the fields'
